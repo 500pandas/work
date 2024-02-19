@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>购物</title>
+    <style>
+          body {  
+    margin: 0;  
+    padding: 0;  
+    font-family: Arial, sans-serif;  
+  }  
+    
+  .sidebar {  
+    width: 250px;  
+    height: 100vh;  
+    position: fixed;  
+    top: 0;  
+    right: -350px;  
+    background-color: #bab4b4;  
+    color: #f16610ea;  
+    padding: 20px;  
+    transition: right 0.3s ease;  
+  }  
+    
+  .sidebar.active {  
+    right: 0;  
+  }  
+    
+  .toggle-button {  
+    position: absolute;  
+    top: 10px;  
+    right: 10px;  
+    background-color: #fff;  
+    color: #333;  
+    border: none;  
+    padding: 10px;  
+    cursor: pointer;  
+    z-index: 1000;  
+  }  
+    
+  .nav-item {  
+    margin-bottom: 10px;  
+  }  
+    
+  .nav-item a {  
+    color: #fff;  
+    text-decoration: none;  
+  }  
+<body>  
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: red;
+            color: #ffffff;
+            padding: 10px;
+        }
+        #imageContainer {  
+            width: 500px;  
+            height: 300px;  
+            overflow: hidden;  
+            position: relative;  
+        }  
+  
+        #imageContainer img {  
+            position: absolute;  
+            width: 100%;  
+            height: 100%;  
+            object-fit: cover;  
+        }  
+        nav {
+            background-color: #ccc;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        nav a {
+            color: #333;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 0 15px;
+        }
+        nav a:hover {
+            background-color: #ddd;
+        }
+        .product-category {
+            margin: 20px;
+        }
+        .product-item {
+            float: left;
+            margin-right: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .product-item img {
+            max-width: 20%;
+            height: auto;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SHOPPING</h1>
+    </header>
+    <nav>
+        <a href="#">关注</a>
+        <a href="#">推荐</a>
+        <a href="#">首页</a>
+        <a href="#">分类</a>
+        <a href="#">快递信息</a>
+    </nav>
+    <div id="imageContainer">  
+        <img src="image1.png" alt="Image 1">  
+    </div>  
+  
+    <script>  
+        var images = ['image1.png', 'image2.png', 'image3.jpg', 'image4.jpg']; 
+        var currentIndex = 0;  
+        var imageContainer = document.getElementById('imageContainer');  
+  
+        function changeImage() {  
+            imageContainer.innerHTML = '<img src="' + images[currentIndex] + '" alt="Image ' + (currentIndex + 1) + '">';  
+            currentIndex = (currentIndex + 1) % images.length;  
+        }  
+        setInterval(changeImage, 3000);  
+    </script>  
+    
+    <div class="product-category">
+        <h2>新品上市</h2>
+        <div class="product-item">
+            <img src="image1.jpg" alt="商品1">
+            <p>日本ZNT香薰机可爱猫咪床头氛围灯香薰灯高颜值加湿器送女生礼物【已售35】</p>
+            <button>立即购买</button>
+        </div>
+        <div class="product-item">
+            <img src="image2.jpg" alt="商品2">
+            <p>中国质造精臣B21 / B203 / B3s / b1标签机打印纸三防热敏标签纸40 * 30mm / 75 * 40不干胶彩色人花纹条码打印贴纸商品价格标签纸</p>
+            <button>立即购买</button>
+        </div>
+        <div class="product-item">  
+            <img src="image7.jpg" alt="商品3">
+            <p>天猫 君乐宝简醇无蔗糖酸奶0蔗糖网红非脱脂佐餐健身风味酸牛奶整箱装</p>
+            <button>立即购买</button>
+        </div>
+        <div class="product-item">  
+                <img src="image4.jpg" alt="商品4">
+                <p>跨境进口|鲍勃红磨坊美国进口有机传统老式
+                    纯燕麦片营养早餐低脂无麸质907g</p>
+                <button>立即购买</button>
+        </div>
+        <div class="product-item">  
+            <img src="image5.jpg" alt="商品5">
+            <p>天猫 碗4个装纯白骨瓷碗4.5英寸吃饭碗白
+                色陶瓷碗6寸大碗汤碗家用面碗</p>
+            <button>立即购买</button>   
+        </div>
+        <div class="toggle-button" onclick="toggleSidebar()">  
+            <i class="fa fa-bars"></i>  
+          </div>  
+            
+          <div class="sidebar" id="sidebar">  
+            <div class="nav-item"><a href="#">我的</a></div>  
+            <div class="nav-item"><a href="#">账号</a></div>  
+            <div class="nav-item"><a href="#">服务</a></div>  
+            <div class="nav-item"><a href="#">设置</a></div>  
+          </div>  
+            
+          <script>  
+          function toggleSidebar() {  
+            var sidebar = document.getElementById('sidebar');  
+            sidebar.classList.toggle('active');  
+          }  
+          </script>  
+    </div>
+    <footer>
+        <p>版权所有 &copy; 2024</p>
+    </footer>
+</body>
+</html>
